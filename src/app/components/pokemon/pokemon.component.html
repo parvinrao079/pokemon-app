@@ -1,0 +1,18 @@
+<div class="p-4">
+    <h2 class="text-2xl font-bold mb-4">Pokémon List</h2>
+    <ul class="space-y-2">
+      <li *ngFor="let pokemon of pokemonList" (click)="loadPokemonDetails(pokemon.name)"
+          class="cursor-pointer hover:bg-blue-200 p-2 rounded">
+        {{ pokemon.name }}
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="selectedPokemon" class="p-4 mt-4 border border-gray-200 rounded">
+    <h3 class="text-xl font-bold">{{ selectedPokemon.name | uppercase }}</h3>
+    <img [src]="selectedPokemon.sprites.front_default" alt="{{ selectedPokemon.name }}"
+         class="w-32 h-32 my-2">
+    <p>Height: {{ selectedPokemon.height }}</p>
+    <p>Weight: {{ selectedPokemon.weight }}</p>
+  </div>
+  
